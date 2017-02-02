@@ -7,6 +7,9 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
+  "permissions": [
+    "http://srf.ch/*", "https://srf.ch/*"
+  ],
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
