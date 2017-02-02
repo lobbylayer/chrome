@@ -22,7 +22,7 @@ class App extends Component {
 
     return (
       <div>
-        <h1>MPs</h1>
+        <h1>Interessenbindungen in diesem Artikel</h1>
         <Disclosure parliamentarianIds={extractor(content, data.parliamentarians)} />
       </div>
     )
