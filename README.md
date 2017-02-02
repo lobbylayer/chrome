@@ -17,6 +17,11 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 * display interests in the best possible form -> UX
 * move interests box to the bottom (Angelo)
 
+## BUGS
+
+* Candidate extraction in extractor.js does not always work, example: http://www.srf.ch/news/schweiz/session/nationalrat-fuer-bankgeheimnis-initiative-und-gegenvorschlag -> Lukas Reimann is indexed as "Reimann↵Nationalrat" - because it is not delimited with a space but with a CR.
+* Matching of final matches could be more sensible, see line 36 in extractor.js
+
 ### Future
 
 * inline annotations
