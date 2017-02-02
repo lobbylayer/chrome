@@ -3521,9 +3521,9 @@ webpack-dev-middleware@^1.4.0:
     path-is-absolute "^1.0.0"
     range-parser "^1.0.3"
 
-webpack-dev-server@1.14.1:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-1.14.1.tgz#e51de228071258b0db6d55e0f5fee55eec6755de"
+webpack-dev-server@1.14.0:
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-1.14.0.tgz#ace376e571a84162f229ba6598e9180f7efc9eec"
   dependencies:
     compression "^1.5.2"
     connect-history-api-fallback "1.1.0"
