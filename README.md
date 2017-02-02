@@ -21,6 +21,7 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
 * Candidate extraction in extractor.js does not always work, example: http://www.srf.ch/news/schweiz/session/nationalrat-fuer-bankgeheimnis-initiative-und-gegenvorschlag -> Lukas Reimann is indexed as "Reimann↵Nationalrat" - because it is not delimited with a space but with a CR.
 * Matching of final matches could be more sensible, see line 36 in extractor.js. Example: http://www.srf.ch/news/schweiz/session/so-geht-es-weiter-nach-der-mei-abstimmung - Kurt Fluri is not matched.
+* Proof that both Reimanns are correctly recognized: http://www.srf.ch/news/schweiz/nationalrat-will-eu-beitrittsgesuch-zurueckziehen - but another but: Lukas Reimann seems to have some duplicated interets (Freidenker Bern)
 
 ### Future
 
