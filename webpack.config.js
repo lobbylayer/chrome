@@ -18,7 +18,8 @@ module.exports = {
   entry: {
     popup: path.join(__dirname, "src", "js", "popup.js"),
     options: path.join(__dirname, "src", "js", "options.js"),
-    background: path.join(__dirname, "src", "js", "background.js")
+    background: path.join(__dirname, "src", "js", "background.js"),
+    content: path.join(__dirname, "src", "js", "content.js")
   },
   output: {
     path: path.join(__dirname, "build"),
@@ -26,8 +27,9 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/, loader: "babel" },
-      { test: /\.css$/, loaders: ["style", "css"] }
+      { test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: ['babel']},
+      { test: /\.css$/, loaders: ["style", "css"] },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' } // inline base64 URLs for <=8k images, direct URLs for the rest
     ]
   },
   resolve: {

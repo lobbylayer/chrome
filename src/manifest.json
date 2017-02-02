@@ -7,8 +7,12 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
+  "content_scripts": [{
+    "matches": ["*://*.srf.ch/*"],
+    "js": ["content.bundle.js"]
+  }],
   "permissions": [
-    "http://srf.ch/*", "https://srf.ch/*"
+    "activeTab"
   ],
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
