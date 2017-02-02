@@ -3,6 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import client from './graphql'
 import { ApolloProvider } from 'react-apollo'
+import { isRts, getLocale } from './utils'
 
 // Listen for messages
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
@@ -14,14 +15,17 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   }
 })
 
-const container = document.getElementsByClassName('main-article-content')[0]
+const container = isRts()
+  ? document.querySelector('.main > article')
+  : document.querySelector('.main-article-content')
+
 if (container) {
   const content = document.createElement('div')
   container.insertBefore(content, container.firstChild)
   render(
     (
       <ApolloProvider client={client}>
-        <App content={container.innerText} />
+        <App content={container.innerText} locale={getLocale()} />
       </ApolloProvider>
     ),
     content
