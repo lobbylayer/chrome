@@ -27,3 +27,7 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
 * inline annotations
 * show only high potency connections and low on demand (Angelo)
+
+## Examples
+
+[SRF](http://www.srf.ch/news/schweiz/session/nationalrat-fuer-bankgeheimnis-initiative-und-gegenvorschlag), [RTS](http://www.rts.ch/info/regions/autres-cantons/8357820-le-pdc-tessinois-appuie-le-referendum-contre-l-application-du-9-fevrier.html)
