@@ -3,16 +3,16 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { css } from 'glamor'
 
-let h1 = css({ 
+let h1 = css({
   color: 'black',
   marginBottom: '0px',
   marginTop: '3px'
 })
-let h2 = css({ 
+let h2 = css({
   marginBottom: '10px'
 })
 
-let pullRight = css({ 
+let pullRight = css({
   float: 'right'
 })
 
