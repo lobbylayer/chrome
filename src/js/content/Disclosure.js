@@ -1,7 +1,6 @@
-import React, {PropTypes} from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-
+import React, {PropTypes} from 'react'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
 
 const query = gql`query getParliamentarian($id: ID!) {
   getParliamentarian(locale: de, id: $id) {
@@ -15,14 +14,14 @@ const query = gql`query getParliamentarian($id: ID!) {
       }
     }
   }
-}`;
+}`
 
 const Detail = ({data}) => {
   if (!data || data.loading) {
-    return <span>Lädt</span>;
+    return <span>Lädt</span>
   }
   if (data.error) {
-    return <span>{data.error.toString()}</span>;
+    return <span>{data.error.toString()}</span>
   }
 
   const {name, age, connections} = data.getParliamentarian
@@ -39,8 +38,7 @@ const Detail = ({data}) => {
   )
 }
 
-const DetailFromId = graphql(query)(Detail);
-
+const DetailFromId = graphql(query)(Detail)
 
 const List = ({parliamentarianIds}) => {
   return (
@@ -57,4 +55,4 @@ List.propTypes = {
   parliamentarianIds: PropTypes.arrayOf(PropTypes.string)
 }
 
-export default List;
+export default List

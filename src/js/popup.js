@@ -1,9 +1,9 @@
-import "../css/popup.css";
-import ParliamentarianList from "./popup/ParliamentarianList";
-import React from "react";
-import { render } from "react-dom";
+import '../css/popup.css'
+import ParliamentarianList from './popup/ParliamentarianList'
+import React from 'react'
+import { render } from 'react-dom'
 import client from './graphql'
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from 'react-apollo'
 
 render(
   (
@@ -11,5 +11,5 @@ render(
       <ParliamentarianList />
     </ApolloProvider>
   ),
-  window.document.getElementById("app-container")
-);
+  window.document.getElementById('app-container')
+)
