@@ -18,7 +18,6 @@ const container = document.getElementsByClassName('main-article-content')[0]
 if (container) {
   const content = document.createElement('div')
   container.insertBefore(content, container.firstChild)
-
   render(
     (
       <ApolloProvider client={client}>
