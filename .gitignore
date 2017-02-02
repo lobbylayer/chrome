@@ -1,7 +1,6 @@
 node_modules
 build
 secrets.*.js
-yarn.lock
 .DS_Store
 npm-debug.log
 src/.DS_Store
