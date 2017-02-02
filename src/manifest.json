@@ -8,7 +8,7 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "http://srf.ch/*", "https://srf.ch/*"
+    "http://srf.ch/*", "https://srf.ch/*", "https://lobbylayer-api.scapp.io/"
   ],
   "manifest_version": 2,
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
