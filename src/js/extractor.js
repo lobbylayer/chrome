@@ -1,7 +1,7 @@
 export default ({content, parliamentarians}) => {
   // magic logic
   // console.log(content)
-  const tokens = content.split(' ')
+  const tokens = content.split(/\s+/)
   const textIndex = tokens.reduce(
     (index, word, i) => {
       index[word] = index[word] || []
