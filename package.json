@@ -1,7 +1,7 @@
 {
   "name": "lobbylayer",
-  "version": "0.0.1",
-  "description": "Inline Swiss MPs vested interests",
+  "version": "0.5.0",
+  "description": " A browser extension and proof of concept for unvealing Swiss PMs lobbies on news websites ",
   "scripts": {
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
