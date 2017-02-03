@@ -19,11 +19,6 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 * make a website (lobbylayer.ch)
 * add more news websites: 20min.ch, watson.ch, nzz.ch, tagesanzeiger.ch
 
-## BUGS
-
-* ~~Matching of final matches could be more sensible, see line 36 in extractor.js. Example: http://www.srf.ch/news/schweiz/session/so-geht-es-weiter-nach-der-mei-abstimmung - Kurt Fluri is not matched.~~
-* Proof that both Reimanns are correctly recognized: http://www.srf.ch/news/schweiz/nationalrat-will-eu-beitrittsgesuch-zurueckziehen - but another but: Lukas Reimann seems to have some duplicated interets (Freidenker Bern)
-
 ### Future
 
 * inline annotations
@@ -31,4 +26,14 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
 ## Examples
 
-[SRF](http://www.srf.ch/news/schweiz/session/nationalrat-fuer-bankgeheimnis-initiative-und-gegenvorschlag), [RTS](http://www.rts.ch/info/regions/autres-cantons/8357820-le-pdc-tessinois-appuie-le-referendum-contre-l-application-du-9-fevrier.html)
+### SRF
+
+- http://www.srf.ch/news/schweiz/session/nationalrat-fuer-bankgeheimnis-initiative-und-gegenvorschlag
+- http://www.srf.ch/news/schweiz/zeit-sich-um-kranke-familienmitglieder-zu-kuemmern
+- http://www.srf.ch/news/schweiz/session/so-geht-es-weiter-nach-der-mei-abstimmung
+- http://www.srf.ch/news/schweiz/nationalrat-will-eu-beitrittsgesuch-zurueckziehen
+
+### RTS
+
+- http://www.rts.ch/info/regions/autres-cantons/8357820-le-pdc-tessinois-appuie-le-referendum-contre-l-application-du-9-fevrier.html
+- http://www.rts.ch/info/suisse/2081653-accord-ubs-gauche-et-udc-toujours-pas-satisfaites-.html
