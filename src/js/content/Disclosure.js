@@ -180,7 +180,7 @@ const Guest = ({data}) => {
       <p>{t('Detail/directConnections')}</p>
       <Connections data={connections.filter(connection => !connection.via)} />
       <p>
-        <a target='_blank' href={`https://lobbywatch.ch/de/daten/parlamentarier/${id.replace('Parliamentarian-', '')}/${firstName}%20${lastName}`}>
+        <a target='_blank' href={`https://lobbywatch.ch/${getLocale()}/daten/parlamentarier/${id.replace('Parliamentarian-', '')}/${firstName}%20${lastName}`}>
           {t('Detail/link')}
         </a>
       </p>
