@@ -12,6 +12,6 @@ export const publications = [
   {
     name: 'nzz',
     hostnameRegex: /nzz.ch$/,
-    containerSelector: '.page--article main'
+    containerSelector: 'article.content main'
   }
 ]
