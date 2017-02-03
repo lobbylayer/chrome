@@ -21,6 +21,9 @@ const container = isRts()
 
 if (container) {
   const content = document.createElement('div')
+  if (isRts()) {
+    content.className = 'rts-module-infosport-body'
+  }
   // container.insertBefore(content, container.firstChild)
   container.appendChild(content)
   render(
