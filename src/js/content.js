@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import client from './graphql'
 import { ApolloProvider } from 'react-apollo'
-import { isRts, getLocale } from './utils'
+import { isRts, getContainerSelector, getLocale,  } from './utils'
 
 // Listen for messages
 chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
@@ -15,9 +15,8 @@ chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
   }
 })
 
-const container = isRts()
-  ? document.querySelector('.main > article')
-  : document.querySelector('.main-article-content')
+const containerSelector = getContainerSelector()
+const container = document.querySelector(containerSelector)
 
 if (container) {
   const content = document.createElement('div')

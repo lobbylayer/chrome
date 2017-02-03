@@ -9,7 +9,8 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
 ## TODO
 
-* add more news websites: 20min.ch, watson.ch, nzz.ch, tagesanzeiger.ch
+* add more news websites: 20min.ch, watson.ch, tagesanzeiger.ch
+* improve style on nzz.ch
 * add to Chrome store
 * port to firefox plugin
 * inline annotations
