@@ -15,7 +15,7 @@
     "https://lobbylayer-api.scapp.io/"
   ],
   "manifest_version": 2,
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
   "icons": {
     "16": "logo16.png",
     "48": "logo48.png",

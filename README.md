@@ -1,5 +1,6 @@
-# lobbylayer
-A browser extension and proof of concept for unvealing Swiss PMs lobbies on news websites
+# Lobbylayer
+
+A browser extension that provides transparent reporting of Swiss MP's vested interests. On your favourite news site.
 
 ## Tech Stack
 
@@ -7,14 +8,13 @@ Chrome-Extension-Webpack-Boilerplate
 
 https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
-## TODO
+## Roadmap
 
 * add more news websites: 20min.ch, watson.ch, tagesanzeiger.ch
 * improve style on nzz.ch
 * add to Chrome store
 * port to firefox plugin
 * inline annotations
-
 
 ## Examples
 

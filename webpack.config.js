@@ -1,9 +1,9 @@
-var webpack = require('webpack'),
-  path = require('path'),
-  fileSystem = require('fs'),
-  env = require('./utils/env'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  WriteFilePlugin = require('write-file-webpack-plugin')
+const webpack = require('webpack')
+const path = require('path')
+const fileSystem = require('fs')
+const env = require('./utils/env')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
 
 // load the secrets
 var alias = {}
@@ -27,8 +27,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: ['babel']},
-      { test: /\.css$/, loaders: ['style', 'css'] }
+      {test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: ['babel']},
+      {test: /\.css$/, loaders: ['style', 'css']}
     ]
   },
   resolve: {

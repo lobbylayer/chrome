@@ -1,4 +1,3 @@
-import '../css/popup.css'
 import Info from './popup/Info'
 import React from 'react'
 import { render } from 'react-dom'

@@ -2,7 +2,7 @@
   "name": "lobbylayer",
   "version": "0.5.0",
   "license": "BSD-3-Clause",
-  "description": " A browser extension and proof of concept for unvealing Swiss PMs lobbies on news websites ",
+  "description": "A browser extension that provides transparent reporting of Swiss MP's vested interests. On your favourite news site.",
   "scripts": {
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-react-native": "^1.9.1",
+    "chrome-location": "^1.2.1",
     "css-loader": "^0.25.0",
     "file-loader": "^0.10.0",
     "fs-extra": "^0.30.0",
