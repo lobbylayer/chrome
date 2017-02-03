@@ -28,8 +28,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loaders: ['babel']},
-      { test: /\.css$/, loaders: ['style', 'css'] },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' } // inline base64 URLs for <=8k images, direct URLs for the rest
+      { test: /\.css$/, loaders: ['style', 'css'] }
     ]
   },
   resolve: {

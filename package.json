@@ -25,6 +25,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-react-native": "^1.9.1",
     "css-loader": "^0.25.0",
+    "file-loader": "^0.10.0",
     "fs-extra": "^0.30.0",
     "html-webpack-plugin": "2.24.1",
     "standard": "^8.6.0",
