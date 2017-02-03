@@ -29,14 +29,12 @@ const style = css({
 })
 
 const rtsStyle = css({
-  maxWidth: 1000,
-  margin: '0 auto',
   '& ul': { paddingLeft: '25px' },
   '& ul li': { listStyle: 'disc' }
 })
 
 const Container = ({children}) => (
-  <div {...style} className={`${isRts() ? rtsStyle : ''}`}>
+  <div {...style} {...rtsStyle} className={`${isRts() ? 'border' : ''}`}>
     <h1><Logo size={20} /> {t('title')}</h1>
     <div>
       {children}
