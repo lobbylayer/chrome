@@ -10,6 +10,14 @@ export const getLocale = () => {
 }
 
 const translations = {
+  'Detail/link': {
+    de: 'Profil ansehen',
+    fr: 'Voir le profil'
+  },
+  'Detail/directConnections': {
+    de: 'Ist mit Firmen, Verbänden und Organisationen in folgenden Lobbygruppen verbunden:',
+    fr: 'Est liée aux entreprises, associations ou organisations suivantes:'
+  },
   'Connections/more/singular': {
     de: 'Weiteres',
     fr: ''

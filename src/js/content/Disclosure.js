@@ -20,7 +20,10 @@ let pullRight = css({
 
 const query = gql`query getParliamentarian($locale: Locale!, $id: ID!) {
   getParliamentarian(locale: $locale, id: $id) {
+    id
     name
+    firstName
+    lastName
     portrait
     council
     gender
@@ -111,14 +114,24 @@ const Detail = ({data}) => {
     return <span>{data.error.toString()}</span>
   }
 
-  const {name, portrait, council, gender, partyMembership, canton, connections} = data.getParliamentarian
+  const {
+    id, name, firstName, lastName,
+    portrait, council, gender, partyMembership, canton,
+    connections
+  } = data.getParliamentarian
 
   return (
     <div className='alert alert-info'>
       <img src={portrait} className={`${pullRight}`} />
       <h1 className={`${h1}`}>{name}</h1>
-      <h2 className={`${h2}`}>{t(`Detail/${council}-${gender}`)} {partyMembership.party.abbr} {canton}</h2>
+      <h2 className={`${h2}`}>{t(`Detail/${council}-${gender}`)} {partyMembership ? partyMembership.party.abbr : ''} {canton}</h2>
+      <p>{t('Detail/directConnections')}</p>
       <Connections data={connections.filter(connection => !connection.via)} />
+      <p>
+        <a target='_blank' href={`https://lobbywatch.ch/de/daten/parlamentarier/${id.replace('Parliamentarian-', '')}/${firstName}%20${lastName}`}>
+          {t('Detail/link')}
+        </a>
+      </p>
     </div>
   )
 }
