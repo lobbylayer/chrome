@@ -1,5 +1,15 @@
+import { publications } from '../publications.js'
+
 export const isRts = () => {
   return !!window.location.hostname.match(/rts.ch$/)
+}
+
+export const getContainerSelector = () => {
+  for (let publication of publications) {
+    if (!!window.location.hostname.match(publication.hostnameRegex)) {
+      return publication.containerSelector
+    }
+  }
 }
 
 export const getLocale = () => {
