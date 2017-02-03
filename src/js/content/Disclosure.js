@@ -100,16 +100,23 @@ class Connections extends Component {
     return (
       <ul>
         {groups.map(({key, values}, i) => {
-          const isOpen = !!this.state[key] || values.length === 1
+          const isToggable = values.length !== 1
+          const isOpen = !!this.state[key] || !isToggable
+          const name = (
+            <span>
+              {values.length}
+              &nbsp;
+              {key === moreKey ? t(`Connections/more/${values.length === 1 ? 'singular' : 'plural'}`) : key}
+            </span>
+          )
           return (
             <li key={i}>
-              <a style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.setState({[key]: !isOpen}) }}>
-                {values.length}
-                &nbsp;
-                {key === moreKey ? t(`Connections/more/${values.length === 1 ? 'singular' : 'plural'}`) : key}
+              {isToggable && <a style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.setState({[key]: !isOpen}) }}>
+                {name}
                 {!isOpen && <br />}
                 {!isOpen && <span {...ellipsisNames}>{values.map(value => value.to.name).join(', ')}</span>}
-              </a>
+              </a>}
+              {!isToggable && name}
               {isOpen && (<ul>
                 {values.map((value, i) => <li key={i}>{value.to.name} {value.function}</li>)}
               </ul>)}
