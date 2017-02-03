@@ -28,6 +28,7 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
 ### SRF
 
+- http://www.srf.ch/news/schweiz/abstimmungen/abstimmungen-28-9-2014/einheitskasse/nach-hitziger-debatte-nationalrat-will-keine-einheitskasse
 - http://www.srf.ch/news/schweiz/session/nationalrat-fuer-bankgeheimnis-initiative-und-gegenvorschlag
 - http://www.srf.ch/news/schweiz/zeit-sich-um-kranke-familienmitglieder-zu-kuemmern
 - http://www.srf.ch/news/schweiz/session/so-geht-es-weiter-nach-der-mei-abstimmung
