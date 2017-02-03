@@ -30,7 +30,9 @@ const style = css({
 
 const rtsStyle = css({
   maxWidth: 1000,
-  margin: '0 auto'
+  margin: '0 auto',
+  '& ul': { paddingLeft: '25px' },
+  '& ul li': { listStyle: 'disc' }
 })
 
 const Container = ({children}) => (

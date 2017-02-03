@@ -3,7 +3,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { nest } from 'd3-collection'
 import { css } from 'glamor'
-import { getLocale, t } from '../utils'
+import { getLocale, t, isRts  } from '../utils'
 
 const h1 = css({
   color: 'black',
@@ -24,6 +24,19 @@ const ellipsisNames = css({
   whiteSpace: 'nowrap',
   overflow: 'hidden',
   textOverflow: 'ellipsis'
+})
+const rtsStyle = css({
+  maxWidth: 1000,
+  margin: '0 auto',
+  backgroundClip: 'padding-box',
+  padding: '1.25rem',
+  paddingBottom: '1.5625rem',
+  marginBottom: '1.5625rem',
+  border: '1px solid #dedede',
+  borderLeft: '4px solid #f45050',
+  background: '#fbfbfb',
+  '& ul': { paddingLeft: '25px' },
+  '& ul li': { listStyle: 'disc' }
 })
 
 function ascending (a, b) {
@@ -111,7 +124,7 @@ const Parliamentarian = ({data}) => {
   } = data.getParliamentarian
 
   return (
-    <div className='alert alert-info'>
+    <div className={`${isRts() ? rtsStyle : 'alert alert-info'}`}>
       <img src={portrait} className={`${pullRight}`} />
       <h1 className={`${h1}`}>{name}</h1>
       <h2 className={`${h2}`}>{t(`Detail/${council}-${gender}`)} {partyMembership ? partyMembership.party.abbr : ''} {canton}</h2>
