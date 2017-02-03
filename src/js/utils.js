@@ -11,8 +11,8 @@ export const getLocale = () => {
 
 const translations = {
   'title': {
-    de: 'Interessenbindungen auf Lobbywatch.ch',
-    fr: 'Intérêts sur Lobbywatch.ch'
+    de: 'Interessenbindungen gemäss Lobbywatch.ch',
+    fr: 'Les liens d’intérêts selon Lobbywatch.ch'
   },
   'Detail/link': {
     de: 'Profil ansehen',
