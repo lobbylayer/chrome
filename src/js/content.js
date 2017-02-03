@@ -21,7 +21,8 @@ const container = isRts()
 
 if (container) {
   const content = document.createElement('div')
-  container.insertBefore(content, container.firstChild)
+  // container.insertBefore(content, container.firstChild)
+  container.appendChild(content)
   render(
     (
       <ApolloProvider client={client}>
