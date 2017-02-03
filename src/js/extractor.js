@@ -15,14 +15,11 @@ const findNames = (tokens, tokenIndex, persons) => {
 
   // only find candidates where prename is also available
   let matches = []
-  console.log(candidates)
   for (const candidate in candidates) {
     // go through each candidate and its matches in the textIndex
     let finalMatchesPerCandidate = []
     candidates[candidate].matches.forEach((idx) => {
       const fullNameCandidate = tokens[idx - 1] + ' ' + tokens[idx]
-      console.log(fullNameCandidate)
-      // TODO: not only look for exact matches but also where fullNameCandidate contains a real name
       let finalMatchPerCandidate = {}
       if (parlIds[fullNameCandidate] !== undefined) {
         finalMatchPerCandidate.parlId = parlIds[fullNameCandidate]
@@ -37,7 +34,6 @@ const findNames = (tokens, tokenIndex, persons) => {
   // reduce to contain only unique pms (for the current use case, anyway)
   let finalMatches = [...new Set(matches.map(parl => parl.parlId))].filter(val => val !== undefined)
 
-  console.log(finalMatches)
   return finalMatches
 }
 
@@ -51,7 +47,6 @@ export default ({content, parliamentarians, guests}) => {
     },
     {}
   )
-  console.log(tokenIndex)
 
   return {
     parliamentarianIds: findNames(tokens, tokenIndex, parliamentarians),
