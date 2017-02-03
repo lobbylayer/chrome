@@ -39,3 +39,4 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 - http://www.rts.ch/info/regions/autres-cantons/8357820-le-pdc-tessinois-appuie-le-referendum-contre-l-application-du-9-fevrier.html
 - http://www.rts.ch/info/suisse/2081653-accord-ubs-gauche-et-udc-toujours-pas-satisfaites-.html
 - https://www.rts.ch/info/suisse/2131106-yvan-perrin-quitte-la-vice-presidence-de-l-udc.html
+- http://www.rts.ch/info/suisse/8148505-la-commission-des-etats-durcit-la-proposition-sur-l-immigration-de-masse.html
