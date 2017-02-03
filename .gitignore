@@ -4,3 +4,4 @@ secrets.*.js
 .DS_Store
 npm-debug.log
 src/.DS_Store
+build.crx
