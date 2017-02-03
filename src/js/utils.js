@@ -30,9 +30,13 @@ const translations = {
     de: 'Lädt...',
     fr: 'charger...'
   },
-  'List/title': {
+  'List/parliamentarians': {
     de: 'In diesem Artikel kommen folgende Parlamentarier vor:',
     fr: 'Dans cet article, les parlementaires suivants se produisent:'
+  },
+  'List/guests': {
+    de: 'In diesem Artikel kommen folgende Gäste vor:',
+    fr: 'Dans cet article, les invités suivants arrivent avant:'
   },
   'Detail/NR-M': {
     de: 'Nationalrat',
@@ -49,9 +53,17 @@ const translations = {
   'Detail/SR-F': {
     de: 'Ständerätin',
     fr: 'La Conseillère aux Etats'
+  },
+  'Detail/invited-by': {
+    de: 'eingeladen von',
+    fr: 'invité par'
+  },
+  'Disclosure/none': {
+    de: 'Keine Namen erkannt',
+    fr: 'Aucun nom reconnu'
   }
 }
 
 export const t = key => {
-  return translations[key][getLocale()]
+  return (translations[key] || {})[getLocale()]
 }

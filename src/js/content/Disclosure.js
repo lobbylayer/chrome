@@ -26,38 +26,6 @@ const ellipsisNames = css({
   textOverflow: 'ellipsis'
 })
 
-const query = gql`query getParliamentarian($locale: Locale!, $id: ID!) {
-  getParliamentarian(locale: $locale, id: $id) {
-    id
-    name
-    firstName
-    lastName
-    portrait
-    council
-    gender
-    partyMembership {
-      party {
-        abbr
-      }
-    }
-    canton
-    connections {
-      group
-      function
-      via {
-        ... on Guest {
-          name
-        }
-      }
-      to {
-        ... on Organisation {
-          name
-        }
-      }
-    }
-  }
-}`
-
 function ascending (a, b) {
   return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN
 }
@@ -128,7 +96,7 @@ class Connections extends Component {
   }
 }
 
-const Detail = ({data}) => {
+const Parliamentarian = ({data}) => {
   if (data.loading) {
     return <span>{t('loading')}</span>
   }
@@ -158,14 +126,100 @@ const Detail = ({data}) => {
   )
 }
 
-const DetailFromId = graphql(query)(Detail)
+const parliamentarianQuery = gql`query getParliamentarian($locale: Locale!, $id: ID!) {
+  getParliamentarian(locale: $locale, id: $id) {
+    id
+    name
+    firstName
+    lastName
+    portrait
+    council
+    gender
+    partyMembership {
+      party {
+        abbr
+      }
+    }
+    canton
+    connections {
+      group
+      function
+      via {
+        ... on Guest {
+          name
+        }
+      }
+      to {
+        ... on Organisation {
+          name
+        }
+      }
+    }
+  }
+}`
+const ParliamentarianFromId = graphql(parliamentarianQuery)(Parliamentarian)
 
-const List = ({parliamentarianIds}) => {
+const Guest = ({data}) => {
+  if (data.loading) {
+    return <span>{t('loading')}</span>
+  }
+  if (data.error) {
+    return <span>{data.error.toString()}</span>
+  }
+
+  const {
+    id, name, firstName, lastName,
+    function: func, parliamentarian,
+    connections
+  } = data.getGuest
+
+  return (
+    <div className='alert alert-info'>
+      <h1 className={`${h1}`}>{name}</h1>
+      <h2 className={`${h2}`}>{func} {t('Detail/invited-by')} {parliamentarian}</h2>
+      <p>{t('Detail/directConnections')}</p>
+      <Connections data={connections.filter(connection => !connection.via)} />
+      <p>
+        <a target='_blank' href={`https://lobbywatch.ch/de/daten/parlamentarier/${id.replace('Parliamentarian-', '')}/${firstName}%20${lastName}`}>
+          {t('Detail/link')}
+        </a>
+      </p>
+    </div>
+  )
+}
+const guestQuery = gql`query getGuest($locale: Locale!, $id: ID!) {
+  getGuest(locale: $locale, id: $id) {
+    id
+    name
+    firstName
+    lastName
+    parliamentarian
+    function
+    connections {
+      group
+      function
+      to {
+        ... on Organisation {
+          name
+        }
+      }
+    }
+  }
+}`
+const GuestFromId = graphql(guestQuery)(Guest)
+
+const List = ({parliamentarianIds, guestIds}) => {
+  const hasDisclosures = parliamentarianIds.length || guestIds.length
   return (
     <div>
-      <h2>{t('List/title')}</h2>
+      {!hasDisclosures && <p>{t('Disclosure/none')}</p>}
+      {!!parliamentarianIds.length && <h2>{t('List/parliamentarians')}</h2>}
       {parliamentarianIds.map(id => (
-        <DetailFromId key={id} id={id} locale={getLocale()} />
+        <ParliamentarianFromId key={id} id={id} locale={getLocale()} />
+      ))}
+      {!!guestIds.length && <h2>{t('List/guests')}</h2>}
+      {guestIds.map(id => (
+        <GuestFromId key={id} id={id} locale={getLocale()} />
       ))}
     </div>
   )

@@ -1,21 +1,7 @@
-export default ({content, parliamentarians}) => {
-  // magic logic
-  // console.log(content)
-  const tokens = content.split(/\s+/)
-  const textIndex = tokens.reduce(
-    (index, word, i) => {
-      index[word] = index[word] || []
-      index[word].push(i)
-      return index
-    },
-    {}
-  )
-  console.log(textIndex)
+const findNames = (tokens, tokenIndex, persons) => {
+  const lastNames = persons.map(d => d.lastName)
 
-  const lastNames = parliamentarians.map(parl => parl.lastName)
-  // const fullNames = parliamentarians.map(parl => parl.name)
-
-  const parlIds = parliamentarians.reduce(
+  const parlIds = persons.reduce(
     (index, parl) => {
       index[parl.name] = parl.id
       return index
@@ -23,7 +9,10 @@ export default ({content, parliamentarians}) => {
     {}
   )
 
-  const candidates = lastNames.filter(ln => textIndex[ln]).map(ln => ({matches: textIndex[ln], lastName: ln}))
+  const candidates = lastNames
+    .filter(ln => tokenIndex[ln])
+    .map(ln => ({matches: tokenIndex[ln], lastName: ln}))
+
   // only find candidates where prename is also available
   let matches = []
   console.log(candidates)
@@ -49,6 +38,23 @@ export default ({content, parliamentarians}) => {
   let finalMatches = [...new Set(matches.map(parl => parl.parlId))].filter(val => val !== undefined)
 
   console.log(finalMatches)
-
   return finalMatches
+}
+
+export default ({content, parliamentarians, guests}) => {
+  const tokens = content.split(/\s+/)
+  const tokenIndex = tokens.reduce(
+    (index, word, i) => {
+      index[word] = index[word] || []
+      index[word].push(i)
+      return index
+    },
+    {}
+  )
+  console.log(tokenIndex)
+
+  return {
+    parliamentarianIds: findNames(tokens, tokenIndex, parliamentarians),
+    guestIds: findNames(tokens, tokenIndex, guests)
+  }
 }

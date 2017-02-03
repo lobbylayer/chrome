@@ -11,6 +11,11 @@ const query = gql`query parliamentarian($locale: Locale!) {
     lastName
     id
   }
+  guests(locale: $locale) {
+    name
+    lastName
+    id
+  }
 }`
 
 class App extends Component {
@@ -24,7 +29,7 @@ class App extends Component {
     }
     return (
       <div>
-        <Disclosure parliamentarianIds={extractor({content, parliamentarians: data.parliamentarians})} />
+        <Disclosure {...extractor({content, parliamentarians: data.parliamentarians, guests: data.guests})} />
       </div>
     )
   }
