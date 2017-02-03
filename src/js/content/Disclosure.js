@@ -5,17 +5,25 @@ import { nest } from 'd3-collection'
 import { css } from 'glamor'
 import { getLocale, t } from '../utils'
 
-let h1 = css({
+const h1 = css({
   color: 'black',
   marginBottom: '0px',
   marginTop: '3px'
 })
-let h2 = css({
+const h2 = css({
   marginBottom: '10px'
 })
-
-let pullRight = css({
+const pullRight = css({
   float: 'right'
+})
+const ellipsisNames = css({
+  display: 'block',
+  width: '100%',
+  fontStyle: 'italic',
+  fontSize: '0.8em',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis'
 })
 
 const query = gql`query getParliamentarian($locale: Locale!, $id: ID!) {
@@ -36,6 +44,11 @@ const query = gql`query getParliamentarian($locale: Locale!, $id: ID!) {
     connections {
       group
       function
+      via {
+        ... on Guest {
+          name
+        }
+      }
       to {
         ... on Organisation {
           name
@@ -87,13 +100,15 @@ class Connections extends Component {
     return (
       <ul>
         {groups.map(({key, values}, i) => {
-          const isOpen = !!this.state[key]
+          const isOpen = !!this.state[key] || values.length === 1
           return (
             <li key={i}>
               <a style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.setState({[key]: !isOpen}) }}>
                 {values.length}
                 &nbsp;
                 {key === moreKey ? t(`Connections/more/${values.length === 1 ? 'singular' : 'plural'}`) : key}
+                {!isOpen && <br />}
+                {!isOpen && <span {...ellipsisNames}>{values.map(value => value.to.name).join(', ')}</span>}
               </a>
               {isOpen && (<ul>
                 {values.map((value, i) => <li key={i}>{value.to.name} {value.function}</li>)}
