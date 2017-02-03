@@ -1,6 +1,7 @@
 {
   "name": "lobbylayer",
   "version": "0.5.0",
+  "license": "BSD-3-Clause",
   "description": " A browser extension and proof of concept for unvealing Swiss PMs lobbies on news websites ",
   "scripts": {
     "build": "node utils/build.js",
