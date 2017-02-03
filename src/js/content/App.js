@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import Disclosure from './Disclosure'
+import Container from './Container'
 import extractor from '../extractor'
 import { t } from '../utils'
 
@@ -28,9 +29,9 @@ class App extends Component {
       return <span>{data.error.toString()}</span>
     }
     return (
-      <div>
+      <Container>
         <Disclosure {...extractor({content, parliamentarians: data.parliamentarians, guests: data.guests})} />
-      </div>
+      </Container>
     )
   }
 }

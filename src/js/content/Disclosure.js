@@ -86,7 +86,7 @@ class Connections extends Component {
               </a>}
               {!isToggable && name}
               {isOpen && (<ul>
-                {values.map((value, i) => <li key={i}>{value.to.name} {value.function}</li>)}
+                {values.map((value, i) => <li key={i}>{value.to.name}</li>)}
               </ul>)}
             </li>
           )

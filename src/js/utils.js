@@ -10,6 +10,10 @@ export const getLocale = () => {
 }
 
 const translations = {
+  'title': {
+    de: 'Interessenbindungen auf Lobbywatch.ch',
+    fr: 'Intérêts sur Lobbywatch.ch'
+  },
   'Detail/link': {
     de: 'Profil ansehen',
     fr: 'Voir le profil'
@@ -20,11 +24,11 @@ const translations = {
   },
   'Connections/more/singular': {
     de: 'Weiteres',
-    fr: ''
+    fr: 'autre'
   },
   'Connections/more/plural': {
     de: 'Weitere',
-    fr: ''
+    fr: 'autres'
   },
   'loading': {
     de: 'Lädt...',
