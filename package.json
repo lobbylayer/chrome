@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "apollo-client": "^0.8.1",
+    "d3-collection": "^1.0.2",
     "glamor": "^2.20.22",
     "graphql-tag": "^1.2.4",
     "react": "^15.3.2",

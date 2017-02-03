@@ -10,6 +10,14 @@ export const getLocale = () => {
 }
 
 const translations = {
+  'Connections/more/singular': {
+    de: 'Weiteres',
+    fr: ''
+  },
+  'Connections/more/plural': {
+    de: 'Weitere',
+    fr: ''
+  },
   'loading': {
     de: 'Lädt...',
     fr: 'charger...'

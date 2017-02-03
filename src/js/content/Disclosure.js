@@ -1,6 +1,7 @@
-import React, {PropTypes} from 'react'
+import React, { Component, PropTypes } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import { nest } from 'd3-collection'
 import { css } from 'glamor'
 import { getLocale, t } from '../utils'
 
@@ -30,6 +31,8 @@ const query = gql`query getParliamentarian($locale: Locale!, $id: ID!) {
     }
     canton
     connections {
+      group
+      function
       to {
         ... on Organisation {
           name
@@ -38,6 +41,67 @@ const query = gql`query getParliamentarian($locale: Locale!, $id: ID!) {
     }
   }
 }`
+
+function ascending (a, b) {
+  return b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN
+}
+
+class Connections extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
+  render () {
+    const {data} = this.props
+    const moreKey = '$more$'
+    let groups = nest()
+      .key(connection => connection.group || moreKey)
+      .entries(data)
+
+    let moreGroup = groups.filter(g => g.key === moreKey)[0]
+
+    groups = groups.filter(g => g.key !== moreKey)
+    groups.sort((a, b) => ascending(a.values.length, b.values.length))
+
+    const moreGroups = groups.slice(5)
+    groups = groups.slice(0, 5)
+
+    if (moreGroups && moreGroups.length) {
+      if (!moreGroup) {
+        moreGroup = {
+          key: moreKey,
+          values: []
+        }
+      }
+      moreGroups.forEach(({values}) => {
+        moreGroup.values = moreGroup.values.concat(values)
+      })
+    }
+    if (moreGroup) {
+      groups.push(moreGroup)
+    }
+
+    return (
+      <ul>
+        {groups.map(({key, values}, i) => {
+          const isOpen = !!this.state[key]
+          return (
+            <li key={i}>
+              <a style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.setState({[key]: !isOpen}) }}>
+                {values.length}
+                &nbsp;
+                {key === moreKey ? t(`Connections/more/${values.length === 1 ? 'singular' : 'plural'}`) : key}
+              </a>
+              {isOpen && (<ul>
+                {values.map((value, i) => <li key={i}>{value.to.name} {value.function}</li>)}
+              </ul>)}
+            </li>
+          )
+        })}
+      </ul>
+    )
+  }
+}
 
 const Detail = ({data}) => {
   if (data.loading) {
@@ -54,11 +118,7 @@ const Detail = ({data}) => {
       <img src={portrait} className={`${pullRight}`} />
       <h1 className={`${h1}`}>{name}</h1>
       <h2 className={`${h2}`}>{t(`Detail/${council}-${gender}`)} {partyMembership.party.abbr} {canton}</h2>
-      <ul>
-        {connections.map(({to}, i) => (
-          <li key={i}>{to.name}</li>
-        ))}
-      </ul>
+      <Connections data={connections.filter(connection => !connection.via)} />
     </div>
   )
 }
