@@ -19,7 +19,7 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
 ## BUGS
 
-* Matching of final matches could be more sensible, see line 36 in extractor.js. Example: http://www.srf.ch/news/schweiz/session/so-geht-es-weiter-nach-der-mei-abstimmung - Kurt Fluri is not matched.
+* ~~Matching of final matches could be more sensible, see line 36 in extractor.js. Example: http://www.srf.ch/news/schweiz/session/so-geht-es-weiter-nach-der-mei-abstimmung - Kurt Fluri is not matched.~~
 * Proof that both Reimanns are correctly recognized: http://www.srf.ch/news/schweiz/nationalrat-will-eu-beitrittsgesuch-zurueckziehen - but another but: Lukas Reimann seems to have some duplicated interets (Freidenker Bern)
 
 ### Future
