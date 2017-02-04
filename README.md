@@ -10,10 +10,11 @@ https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/tree/react
 
 ## Roadmap
 
+* quality assure with Lobbywatch.ch
+* add to Chrome store
+* add to Firefox store
 * add more news websites: 20min.ch, watson.ch, tagesanzeiger.ch
 * improve style on nzz.ch
-* add to Chrome store
-* port to firefox plugin
 * inline annotations
 
 ## Examples
