@@ -1,6 +1,6 @@
 {
   "name": "lobbylayer",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "license": "BSD-3-Clause",
   "description": "A browser extension that provides transparent reporting of Swiss MP's vested interests. On your favourite news site.",
   "scripts": {
