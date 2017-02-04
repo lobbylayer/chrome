@@ -3,6 +3,4 @@ build
 secrets.*.js
 .DS_Store
 npm-debug.log
-src/.DS_Store
-lobbylayer.crx
-lobbylayer.pem
+dist
